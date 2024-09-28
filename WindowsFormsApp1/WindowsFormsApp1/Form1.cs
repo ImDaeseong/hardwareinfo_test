@@ -15,6 +15,34 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+
+            InitListView();
+        }
+        private void InitListView()
+        {
+            listView1.View = View.Details;
+            listView1.GridLines = true;
+            listView1.FullRowSelect = true;
+            listView1.Columns.Add("온도", 300, HorizontalAlignment.Center);
+
+            listView2.View = View.Details;
+            listView2.GridLines = true;
+            listView2.FullRowSelect = true;
+            listView2.Columns.Add("온도", 300, HorizontalAlignment.Center);
+        }
+
+        private void setListview1(String sValue)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Text = sValue;
+            listView1.Items.Add(item);
+        }
+
+        private void setListview2(String sValue)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Text = sValue;
+            listView2.Items.Add(item);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,7 +66,9 @@ namespace WindowsFormsApp1
                     {
                         if (sensor.SensorType == SensorType.Temperature)
                         {
-                            Console.WriteLine($"{sensor.Name}: {sensor.Value} (CPU)");
+                            //Console.WriteLine($"{sensor.Name}: {sensor.Value}");
+                            String sValue = String.Format("{0}: {1}", sensor.Name, sensor.Value);
+                            setListview1(sValue);
                         }
                     }
                 }
@@ -49,7 +79,9 @@ namespace WindowsFormsApp1
                     {
                         if (sensor.SensorType == SensorType.Temperature)
                         {
-                            Console.WriteLine($"{sensor.Name}: {sensor.Value} (GPU)");
+                            //Console.WriteLine($"{sensor.Name}: {sensor.Value}");
+                            String sValue = String.Format("{0}: {1}", sensor.Name, sensor.Value);
+                            setListview2(sValue);
                         }
                     }
                 }
