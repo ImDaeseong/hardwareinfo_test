@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "loaddll_test", "loaddll_test\loaddll_test.vcproj", "{711C23FD-3C67-496E-B1D9-313BD5598B0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{711C23FD-3C67-496E-B1D9-313BD5598B0D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{711C23FD-3C67-496E-B1D9-313BD5598B0D}.Debug|Win32.Build.0 = Debug|Win32
+		{711C23FD-3C67-496E-B1D9-313BD5598B0D}.Release|Win32.ActiveCfg = Release|Win32
+		{711C23FD-3C67-496E-B1D9-313BD5598B0D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
