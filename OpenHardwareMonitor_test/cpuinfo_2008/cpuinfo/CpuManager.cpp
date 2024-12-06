@@ -10,7 +10,9 @@
 
 CpuManager::CpuManager() 
 {
-
+	m_strCpu = "";
+	m_strGpu = "";
+	m_strLastBootTime = "";
 }
 
 CString CpuManager::FormatString(float fValue)
@@ -44,24 +46,40 @@ void CpuManager::GetCpuInfo()
     float fCpu = 0.0f;
     if (SUCCEEDED(pWrapper->GetCPUTemperature(&fCpu))) 
 	{
-        CString strCpu = FormatString(fCpu);
-
+        m_strCpu = FormatString(fCpu);
     }
 
     // GPU 온도 
     float fGpu = 0.0f;
     if (SUCCEEDED(pWrapper->GetGPUTemperature(&fGpu))) 
 	{
-        CString strGpu = FormatString(fGpu);
+        m_strGpu = FormatString(fGpu);
     }
 
     // 마지막 부팅 시간 
     BSTR bstrLastBootTime = NULL;
     if (SUCCEEDED(pWrapper->GetLastBootTime(&bstrLastBootTime)))
-	{
-        CString strLastBootTime(bstrLastBootTime);
+	{       
+		CString strTemp(bstrLastBootTime);
+		m_strLastBootTime = strTemp;
         SysFreeString(bstrLastBootTime); 
     }
 
     CoUninitialize();
 }
+
+CString CpuManager::GetCpu()
+{
+	return m_strCpu;
+}
+
+CString CpuManager::GetGpu()
+{
+	return m_strGpu;
+}
+	
+CString CpuManager::GetLastBootTime()
+{
+	return m_strLastBootTime;
+}
+

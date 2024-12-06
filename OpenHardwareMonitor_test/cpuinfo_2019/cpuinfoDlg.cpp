@@ -29,6 +29,10 @@ BOOL CcpuinfoDlg::OnInitDialog()
 	CpuManager obj;
 	obj.GetCpuInfo();
 
+	CString strMessage;
+	strMessage.Format(_T("cpu:%s gpu:%s lastboottime:%s"), obj.GetCpu(), obj.GetGpu(), obj.GetLastBootTime());
+	AfxMessageBox(strMessage);
+
 	return TRUE;  
 }
 
